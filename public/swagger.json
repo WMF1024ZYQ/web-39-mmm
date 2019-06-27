@@ -1,0 +1,1559 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "这是慢慢买项目的接口文档",
+    "version": "1.0.0",
+    "title": "慢慢买 api 接口文档",
+    "termsOfService": "",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Go",
+      "url": ""
+    }
+  },
+  "host": "",
+  "basePath": "",
+  "tags": [{
+      "name": "index",
+      "description": "首页接口",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "category",
+      "description": "比价搜索",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "productlist",
+      "description": "分类页商品列表页面",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "bijia",
+      "description": "商品详情页",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "moneyproduct",
+      "description": "国内折扣商品的详细信息",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "inlanddiscount",
+      "description": "国内折扣商品列表信息",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "discount",
+      "description": "国内折扣详情页",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "baicaijia",
+      "description": "白菜价页面",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "coupon",
+      "description": "优惠卷页面",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "couponproduct",
+      "description": "优惠卷列表页面",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "gsproduct",
+      "description": "凑单品",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "sitenav",
+      "description": "商城导航",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    },
+    {
+      "name": "brandTitle",
+      "description": "品牌大全",
+      "externalDocs": {
+        "description": "请求api",
+        "url": ""
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/getindexmenu": {
+      "get": {
+        "tags": [
+          "index"
+        ],
+        "summary": "获取首页上面的菜单栏数据",
+        "description": "",
+        "operationId": "addPet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getindexmenu"
+            }
+          }
+        }
+      }
+    },
+    "/api/getmoneyctrl": {
+      "get": {
+        "tags": [
+          "index"
+        ],
+        "summary": "获取折扣列表内容",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "pageid",
+          "in": "query",
+          "description": "页数id 不传默认返回第一页数据",
+          "required": false,
+          "type": "number"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getmoneyctrl"
+            }
+          }
+        }
+      }
+    },
+    "/api/getcategorytitle": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "获取分类的标题信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getcategorytitle"
+            }
+          }
+        }
+      }
+    },
+    "/api/getcategory": {
+      "get": {
+        "tags": [
+          "category"
+        ],
+        "summary": "根据分类的标题获取标题对应的分类列表",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "titleid",
+          "in": "query",
+          "description": "分类标题的 id",
+          "required": true,
+          "type": "number"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getcategory"
+            }
+          }
+        }
+      }
+    },
+    "/api/getcategorybyid": {
+      "get": {
+        "tags": [
+          "productlist"
+        ],
+        "summary": "根据分类的id获取分类的名称",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "categoryid",
+          "in": "query",
+          "description": "分类的 id",
+          "required": true,
+          "type": "number"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getcategorybyid"
+            }
+          }
+        }
+      }
+    },
+    "/api/getproductlist": {
+      "get": {
+        "tags": [
+          "productlist"
+        ],
+        "summary": "根据分类id 和 pageid 获取该分类的商品列表",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "pageid",
+            "in": "query",
+            "description": "分页",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "categoryid",
+            "in": "query",
+            "description": "二级分类ID",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getproductlist"
+            }
+          }
+        }
+      }
+    },
+    "/api/getproduct": {
+      "get": {
+        "tags": [
+          "bijia"
+        ],
+        "summary": "根据商品 id 获取商品的详细信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "productid",
+          "in": "query",
+          "description": "商品id",
+          "required": true,
+          "type": "number"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getproduct"
+            }
+          }
+        }
+      }
+    },
+    "/api/getproductcom": {
+      "get": {
+        "tags": [
+          "bijia"
+        ],
+        "summary": "根据商品id 获取该商品的评论信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "productid",
+          "in": "query",
+          "description": "商品id",
+          "required": true,
+          "type": "number"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getproductcom"
+            }
+          }
+        }
+      }
+    },
+    "/api/getmoneyctrlproduct": {
+      "get": {
+        "tags": [
+          "moneyproduct"
+        ],
+        "summary": "根据商品id获取国内折扣商品的详细信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "productid",
+          "in": "query",
+          "description": "商品id",
+          "required": true,
+          "type": "number",
+          "default": "20"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getmoneyctrlproduct"
+            }
+          }
+        }
+      }
+    },
+    "/api/getinlanddiscount": {
+      "get": {
+        "tags": [
+          "inlanddiscount"
+        ],
+        "summary": "国内折扣商品列表信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getinlanddiscount"
+            }
+          }
+        }
+      }
+    },
+    "/api/getdiscountproduct": {
+      "get": {
+        "tags": [
+          "discount"
+        ],
+        "summary": "根据商品id获取国内折扣商品的详细信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "productid",
+          "in": "query",
+          "description": "商品id",
+          "required": true,
+          "type": "number",
+          "default": "20"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getdiscountproduct"
+            }
+          }
+        }
+      }
+    },
+    "/api/getbaicaijiatitle": {
+      "get": {
+        "tags": [
+          "baicaijia"
+        ],
+        "summary": "获取白菜价页面的tab栏标题数据",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getbaicaijiatitle"
+            }
+          }
+        }
+      }
+    },
+    "/api/getbaicaijiaproduct": {
+      "get": {
+        "tags": [
+          "baicaijia"
+        ],
+        "summary": "根据标题id获取该标题对应的商品列表",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "titleid",
+          "in": "query",
+          "description": "标题id",
+          "required": true,
+          "type": "number"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getbaicaijiaproduct"
+            }
+          }
+        }
+      }
+    },
+    "/api/getcoupon": {
+      "get": {
+        "tags": [
+          "coupon"
+        ],
+        "summary": "获取优惠券标题信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getcoupon"
+            }
+          }
+        }
+      }
+    },
+    "/api/getcouponproduct": {
+      "get": {
+        "tags": [
+          "couponproduct"
+        ],
+        "summary": "根据优惠券标题id获取该标题对应的列表",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "couponid",
+          "in": "query",
+          "description": "优惠券标题id",
+          "required": true,
+          "type": "number"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getcouponproduct"
+            }
+          }
+        }
+      }
+    },
+    "/api/getgsshop": {
+      "get": {
+        "tags": [
+          "gsproduct"
+        ],
+        "summary": "获取凑单品的店铺的信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getgsshop"
+            }
+          }
+        }
+      }
+    },
+    "/api/getgsshoparea": {
+      "get": {
+        "tags": [
+          "gsproduct"
+        ],
+        "summary": "获取地区",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getgsproduct"
+            }
+          }
+        }
+      }
+    },
+    "/api/getgsproduct": {
+      "get": {
+        "tags": [
+          "gsproduct"
+        ],
+        "summary": "根据店铺的id和区域的id获取该店铺该区域的商品列表信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "shopid",
+            "in": "query",
+            "description": "店铺id",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "areaid",
+            "in": "query",
+            "description": "区域id",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getgsshoparea"
+            }
+          }
+        }
+      }
+    },
+    "/api/getsitenav": {
+      "get": {
+        "tags": [
+          "sitenav"
+        ],
+        "summary": "获取所有商城导航的列表信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getsitenav"
+            }
+          }
+        }
+      }
+    },
+    "/api/getbrandtitle": {
+      "get": {
+        "tags": [
+          "brandTitle"
+        ],
+        "summary": "获取品牌大全的标题信息",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getbrandtitle"
+            }
+          }
+        }
+      }
+    },
+    "/api/getbrand": {
+      "get": {
+        "tags": [
+          "brandTitle"
+        ],
+        "summary": "根据品牌的标题id获取该品牌标题下的十大品牌列表",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "brandtitleid",
+          "in": "query",
+          "description": "品牌标题id",
+          "required": true,
+          "type": "number"
+        }],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getbrand"
+            }
+          }
+        }
+      }
+    },
+    "/api/getbrandproductlist": {
+      "get": {
+        "tags": [
+          "brandTitle"
+        ],
+        "summary": "根据品牌的标题id获取该品牌标题下的十大品牌的销量排行列表商品",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "brandtitleid",
+            "in": "query",
+            "description": "品牌标题id",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "description": "展示的数据量",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "请求数据成功",
+            "schema": {
+              "$ref": "#/definitions/getbrandproductlist"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "getindexmenu": {
+      "type": "object",
+      "description": "请求到的参数",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的参数列表",
+          "items": {
+            "type": "object",
+            "properties": {
+              "indexmenuId": {
+                "type": "string",
+                "description": "菜单id"
+              },
+              "name": {
+                "type": "string",
+                "description": "菜单名称"
+              },
+              "img": {
+                "type": "string",
+                "description": "菜单图片"
+              },
+              "titlehref": {
+                "type": "string",
+                "description": "菜单的连接地址"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getmoneyctrl": {
+      "type": "object",
+      "description": "返回当前页数据",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的参数列表",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "number",
+                "description": "商品id"
+              },
+              "productName": {
+                "type": "string",
+                "description": "商品名称"
+              },
+              "productPinkage": {
+                "type": "string",
+                "description": "商品价格"
+              },
+              "productFrom": {
+                "type": "string",
+                "description": "商品来源"
+              },
+              "productTime": {
+                "type": "string",
+                "description": "商品发布事件"
+              },
+              "productImgSm": {
+                "type": "string",
+                "description": "商品图片小图"
+              },
+              "productComCount": {
+                "type": "string",
+                "description": "商品评论"
+              }
+            }
+          }
+        },
+        "pagesize": {
+          "type": "number",
+          "description": "每一页的数量"
+        },
+        "totalCount": {
+          "type": "number",
+          "description": "总页数"
+        }
+      }
+    },
+    "getcategorytitle": {
+      "type": "object",
+      "description": "返回当前标题的信息",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的参数列表",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleId": {
+                "type": "number",
+                "description": "菜单ID"
+              },
+              "title": {
+                "type": "string",
+                "description": "菜单的名称"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getcategory": {
+      "type": "object",
+      "description": "返回二级菜单信息",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的参数列表",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleId": {
+                "type": "number",
+                "description": "一级菜单ID"
+              },
+              "category": {
+                "type": "string",
+                "description": "二级菜单名称"
+              },
+              "categoryId": {
+                "type": "number",
+                "description": "二级菜单ID"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getcategorybyid": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的参数列表",
+          "items": {
+            "type": "object",
+            "properties": {
+              "categoryId": {
+                "type": "number",
+                "description": "二级分类ID"
+              },
+              "category": {
+                "type": "string",
+                "description": "二级分类名称"
+              },
+              "titleId": {
+                "type": "number",
+                "description": "一级标题ID"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getproductlist": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的商品列表",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "number",
+                "description": "商品ID"
+              },
+              "categoryId": {
+                "type": "string",
+                "description": "商品分类ID"
+              },
+              "productListId": {
+                "type": "number",
+                "description": "商品列表ID"
+              },
+              "productName": {
+                "type": "string",
+                "description": "商品名称"
+              },
+              "productImg": {
+                "type": "string",
+                "description": "商品图片"
+              },
+              "productPrice": {
+                "type": "string",
+                "description": "商品价格"
+              },
+              "productQuote": {
+                "type": "string",
+                "description": "商品报价"
+              },
+              "productCom": {
+                "type": "string",
+                "description": "商品评论数"
+              },
+              "brandName": {
+                "type": "string",
+                "description": "商品名称"
+              },
+              "brandTitleId": {
+                "type": "string",
+                "description": "品牌标题名称"
+              }
+            }
+          }
+        },
+        "pagesize": {
+          "type": "number",
+          "description": "每一页的数量"
+        },
+        "totalCount": {
+          "type": "number",
+          "description": "总页数多少"
+        }
+      }
+    },
+    "getproduct": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的商品的详细信息",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "number",
+                "description": "商品id"
+              },
+              "productName": {
+                "type": "string",
+                "description": "商品名称"
+              },
+              "productImg": {
+                "type": "string",
+                "description": "商品图片"
+              },
+              "bjShop": {
+                "type": "string",
+                "description": "商品比价购买店铺"
+              },
+              "categoryId": {
+                "type": "string",
+                "description": "分类ID"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getproductcom": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的评论信息",
+          "items": {
+            "type": "object",
+            "properties": {
+              "comId": {
+                "type": "number",
+                "description": "商品评论id"
+              },
+              "comName": {
+                "type": "string",
+                "description": "商品评论人名"
+              },
+              "comTime": {
+                "type": "string",
+                "description": "商品评论时间"
+              },
+              "comFrom": {
+                "type": "string",
+                "description": "商品评论来源"
+              },
+              "comContent": {
+                "type": "string",
+                "description": "商品评论内容"
+              },
+              "productId": {
+                "type": "number",
+                "description": "商品id"
+              },
+              "categoryId": {
+                "type": "number",
+                "description": "分类id"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getmoneyctrlproduct": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "description": "请求到的详情列表信息",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "number",
+                "description": "商品评论id"
+              },
+              "productName": {
+                "type": "string",
+                "description": "商品名称"
+              },
+              "productPinkage": {
+                "type": "string",
+                "description": "商品价格"
+              },
+              "productFrom": {
+                "type": "string",
+                "description": "商品来源"
+              },
+              "productTime": {
+                "type": "string",
+                "description": "商品发布时间"
+              },
+              "productTips": {
+                "type": "string",
+                "description": "商品发布小编"
+              },
+              "productInfo": {
+                "type": "string",
+                "description": "商品的描述信息1"
+              },
+              "productInfo1": {
+                "type": "string",
+                "description": "商品的描述信息2"
+              },
+              "productImgSm": {
+                "type": "string",
+                "description": "商品的图片小图"
+              },
+              "productImgLg": {
+                "type": "string",
+                "description": "商品的图片大图"
+              },
+              "productCity": {
+                "type": "string",
+                "description": "商品的库存城市"
+              },
+              "productInfo2": {
+                "type": "string",
+                "description": "商品的描述信息3"
+              },
+              "productImg2": {
+                "type": "string",
+                "description": "商品第2张图片"
+              },
+              "productImg3": {
+                "type": "string",
+                "description": "商品第3张图片"
+              },
+              "productComCount": {
+                "type": "string",
+                "description": "商品评论数量"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getinlanddiscount": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "number",
+                "description": "商品id"
+              },
+              "productName": {
+                "type": "string",
+                "description": "商品名称"
+              },
+              "productPrice": {
+                "type": "string",
+                "description": "商品价格"
+              },
+              "productFrom": {
+                "type": "string",
+                "description": "商品来源"
+              },
+              "productTime": {
+                "type": "string",
+                "description": "商品发布时间"
+              },
+              "productImg": {
+                "type": "string",
+                "description": "商品的图片"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getdiscountproduct": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "number",
+                "description": "商品id"
+              },
+              "productName": {
+                "type": "string",
+                "description": "商品名称"
+              },
+              "productPrice": {
+                "type": "string",
+                "description": "商品价格"
+              },
+              "productFrom": {
+                "type": "string",
+                "description": "商品来源"
+              },
+              "productTime": {
+                "type": "string",
+                "description": "商品时间"
+              },
+              "productTips": {
+                "type": "string",
+                "description": "商品发布小编"
+              },
+              "productInfo": {
+                "type": "string",
+                "description": "商品的描述信息1"
+              },
+              "productImg": {
+                "type": "string",
+                "description": "商品图片"
+              },
+              "productComment": {
+                "type": "string",
+                "description": "商品评论数量"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getbaicaijiatitle": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleId": {
+                "type": "number",
+                "description": "标题id"
+              },
+              "title": {
+                "type": "string",
+                "description": "标题内容"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getbaicaijiaproduct": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titleId": {
+                "type": "number",
+                "description": "标题id"
+              },
+              "productId": {
+                "type": "number",
+                "description": "商品id"
+              },
+              "productName": {
+                "type": "string",
+                "description": "商品名称"
+              },
+              "productPrice": {
+                "type": "string",
+                "description": "商品价格"
+              },
+              "productImg": {
+                "type": "string",
+                "description": "商品图片"
+              },
+              "productCoupon": {
+                "type": "string",
+                "description": "点击领取优惠卷"
+              },
+              "productHref": {
+                "type": "string",
+                "description": "下单连接"
+              },
+              "productCouponRemain": {
+                "type": "string",
+                "description": "已领数量"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getcoupon": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "couponId": {
+                "type": "number",
+                "description": "优惠劵标题ID"
+              },
+              "couponImg": {
+                "type": "string",
+                "description": "优惠券标题图片"
+              },
+              "couponLink": {
+                "type": "string",
+                "description": "优惠券列表链接"
+              },
+              "couponTitle": {
+                "type": "string",
+                "description": "优惠券标题名称"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getcouponproduct": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "couponProductId": {
+                "type": "number",
+                "description": "优惠券商品id"
+              },
+              "couponId": {
+                "type": "number",
+                "description": "优惠券标题id"
+              },
+              "couponProductTime": {
+                "type": "string",
+                "description": "优惠券商品有效期"
+              },
+              "couponProductImg": {
+                "type": "string",
+                "description": "优惠券商品图片"
+              },
+              "couponProductName": {
+                "type": "string",
+                "description": "优惠券商品名称"
+              },
+              "couponProductPrice": {
+                "type": "string",
+                "description": "优惠券商品价格"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getgsshop": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "shopId": {
+                "type": "number",
+                "description": "店铺id"
+              },
+              "shopName": {
+                "type": "string",
+                "description": "店铺名称"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getgsshoparea": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "number",
+                "description": "商品id"
+              },
+              "areaId": {
+                "type": "string",
+                "description": "区域id"
+              },
+              "shopId": {
+                "type": "string",
+                "description": "店铺id"
+              },
+              "productPrice": {
+                "type": "string",
+                "description": "商品价格"
+              },
+              "productImg": {
+                "type": "string",
+                "description": "商品图片"
+              },
+              "productName": {
+                "type": "string",
+                "description": "商品名称"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getsitenav": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "navId": {
+                "type": "number",
+                "description": "导航id"
+              },
+              "navImg": {
+                "type": "string",
+                "description": "导航图片"
+              },
+              "navTitle": {
+                "type": "string",
+                "description": "导航名称"
+              },
+              "navHref": {
+                "type": "string",
+                "description": "导航链接"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getbrandtitle": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "brandTitleId": {
+                "type": "number",
+                "description": "品牌标题id"
+              },
+              "brandTitle": {
+                "type": "string",
+                "description": "品牌标题名称"
+              },
+              "categoryId": {
+                "type": "number",
+                "description": "分类id"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getbrand": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "brandId": {
+                "type": "number",
+                "description": "品牌标题id"
+              },
+              "brandTitleId": {
+                "type": "string",
+                "description": "品牌标题名称"
+              },
+              "brandName": {
+                "type": "number",
+                "description": "分类id"
+              },
+              "brandInfo": {
+                "type": "string",
+                "description": "品牌全网销售量"
+              },
+              "categoryId": {
+                "type": "number",
+                "description": "分类id"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getbrandproductlist": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "areaId": {
+                "type": "number",
+                "description": "地区id"
+              },
+              "areaName": {
+                "type": "string",
+                "description": "地区名称"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getgsproduct"
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
