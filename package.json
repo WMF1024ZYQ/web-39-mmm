@@ -46,7 +46,7 @@
     "onela": "^2.4.4",
     "pinyin": "^2.8.3",
     "pug": "^2.0.0-rc.1",
-    "sequelize": "^5.4.0",
+    "sequelize": "^5.15.1",
     "superagent": "^5.0.5"
   },
   "devDependencies": {
