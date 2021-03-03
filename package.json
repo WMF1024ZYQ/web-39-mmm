@@ -45,7 +45,7 @@
     "node-pinyin": "^0.2.3",
     "onela": "^2.4.4",
     "pinyin": "^2.8.3",
-    "pug": "^2.0.0-rc.1",
+    "pug": "^3.0.1",
     "sequelize": "^5.4.0",
     "superagent": "^5.0.5"
   },
