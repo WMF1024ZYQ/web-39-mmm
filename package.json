@@ -23,7 +23,7 @@
     "gulp-ruby-sass": "^4.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify-es": "^1.0.4",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "koa": "^2.2.0",
     "koa-body": "^4.1.0",
     "koa-bodyparser": "^3.2.0",
